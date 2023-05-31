@@ -207,6 +207,48 @@ def ColonneMontrer(taille,grille:dict,x): # Colonne y
                 grille[(x,y)]["estVisible"] = True  # modifie le paramètre pour que le statue de la case soit visible
     return grille # renvoye la grille
 
+def CacherZone(grille):
+    """Fonction Principale :
+        fonction qui cache aléatoire les casses découvertes
+    
+    :param grille:dict
+    :return: grille
+    """
+
+    m = (randint(1,9),randint(1,9))  #prend des coordonnées aléatoire entre 1 et 9 car grille = 9x9
+    for m in range(10):  #boucle qu'on repete x fois 
+        if grille[m]["estVisible"] = True : #si valeur est visible 
+            grille[m]["estVisible"] = False  #Alors la cache
+            return grille #renvoye la grille
+        
+def MineAdjacente(grille:dict,taille):
+    """Fonction Principale : 
+    fonction qui indique le nombre de mine adjacente
+
+    :param: grille(dict)
+    :return grille
+    """
+    nbrMineAdjacent = 0   #initialise une variable pour indiquer le nombre de mine adjacent de la case 
+    for x in range(1,len(taille)+1):    #parcours la grille
+        for y in range(1,len(taille)+1):    #parcours la grille
+            if x+1[estVisible] = True :    #Si la case a d'avant et d'après on le statut "estVisible"=True
+                nbrMineAdjacent += 1
+            elif x-1[estVisible] = True :   #Si la case avant possède une mine
+                nbrMineAdjacent += 1
+            elif y+1[estVisible] = True :   #Si la case en dessous possède une mine
+                nbrMineAdjacent += 1
+            elif y-1[estVisible] = True :   #Si la case au dessus possède des mine
+                nbrMineAdjacent += 1
+            elif(x-1,y-1)[estVisible] = True:   #Si la case en haut à guauche possède une mine
+                nbrMineAdjacent += 1
+            elif(x+1,y-1)[estVisible] = True:   #Si la case en bas à droite possède une mine
+                nbrMineAdjacent += 1
+            elif(x-1,y+1)[estVisible] = True:   #Si la case en bas à gauche possède une mine
+                nbrMineAdjacent += 1
+            elif(x+1,y+1)[estVisible] = True:   #Si la case en bas à droite possède une mine
+                nbrMineAdjacent += 1
+            return nbrMineAdjacent  #renvoye la variable nbrMineAdjacent
+
 
 def manage_assert(grille):
     """
